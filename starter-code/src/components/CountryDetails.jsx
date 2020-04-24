@@ -12,7 +12,7 @@ class CountryDetails extends Component {
     return (
       <div>
         <h1>{countryObj.name.common}</h1>
-            <table class="table">
+            <table className="table">
               <thead></thead>
               <tbody>
                 <tr>
@@ -29,13 +29,20 @@ class CountryDetails extends Component {
                   <td>Borders</td>
                   <td>
                     <ul>
-                      {countryObj.borders? 
+                      {/* the commented code is an example without optional chaining */}
+                      {/* {countryObj.borders? 
                       (countryObj.borders.map(countryCode => {
                         return (
                         <li><Link to={'/countries/'+ countryCode}>{this.props.countries.find(eachCountry => eachCountry.cca3 === countryCode).name.common}</Link></li>
                         )
                       })):
-                      ("")}
+                      ("")} */}
+                      {/* code below is an example using optional chaining */}
+                      {countryObj.borders?.map(countryCode => { 
+                        return (
+                        <li><Link to={'/countries/'+ countryCode}>{this.props.countries.find(eachCountry => eachCountry.cca3 === countryCode).name.common}</Link></li>
+                        )
+                      })}
                     </ul>
                   </td>
                 </tr>
